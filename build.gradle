@@ -40,7 +40,14 @@ dependencies {
 	// JPA
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	testImplementation 'org.springframework.boot:spring-boot-starter-data-jpa-test'
-	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'}
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+	// Spring Security
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+
+	// JWT
+	implementation 'io.jsonwebtoken:jjwt:0.12.6'
+}
 
 tasks.named('test') {
 	useJUnitPlatform()
