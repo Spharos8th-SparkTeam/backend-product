@@ -24,7 +24,7 @@ public class CustomAuthenticationEntryPoint implements AuthenticationEntryPoint 
     }
 
     private void sendErrorResponse(HttpServletResponse response, ErrorCode errorCode) throws IOException {
-        ErrorResponseDTO errorResponse = new ErrorResponseDTO(
+        ErrorResponseDto errorResponse = new ErrorResponseDto(
                 LocalDateTime.now(),
                 errorCode.getHttpStatus(),
                 errorCode.getCode(),

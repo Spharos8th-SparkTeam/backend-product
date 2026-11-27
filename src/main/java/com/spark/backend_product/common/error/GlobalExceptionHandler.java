@@ -20,9 +20,9 @@ import java.time.LocalDateTime;
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(BusinessException.class)
-    public ResponseEntity<ErrorResponseDTO> handleBussinessException(BusinessException ex) {
+    public ResponseEntity<ErrorResponseDto> handleBussinessException(BusinessException ex) {
         ErrorCode ec = ex.getErrorCode();
-        ErrorResponseDTO body = new ErrorResponseDTO(
+        ErrorResponseDto body = new ErrorResponseDto(
                 LocalDateTime.now(),
                 ec.getHttpStatus(),
                 ec.getCode(),
@@ -32,26 +32,26 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(CustomSecurityException.class)
-    public ResponseEntity<ErrorResponseDTO> handleCustomSecurityException(CustomSecurityException ex) {
+    public ResponseEntity<ErrorResponseDto> handleCustomSecurityException(CustomSecurityException ex) {
         return buildErrorResponse(ex.getErrorCode());
     }
 
     // 외부 API 요청 오류 (400)
     @ExceptionHandler(HttpClientErrorException.class)
-    public ResponseEntity<ErrorResponseDTO> handleHttpClientError(HttpClientErrorException ex) {
+    public ResponseEntity<ErrorResponseDto> handleHttpClientError(HttpClientErrorException ex) {
         ErrorCode errorCode = resolveClientErrorCode(ex);
         return buildErrorResponse(errorCode);
     }
 
     // 외부 API 서버 오류 (5xx)
     @ExceptionHandler(HttpServerErrorException.class)
-    public ResponseEntity<ErrorResponseDTO> handleHttpServerError(HttpServerErrorException ex) {
+    public ResponseEntity<ErrorResponseDto> handleHttpServerError(HttpServerErrorException ex) {
         ErrorCode errorCode = resolveServerErrorCode(ex);
         return buildErrorResponse(errorCode);
     }
 
     @ExceptionHandler(JwtException.class)
-    public ResponseEntity<ErrorResponseDTO> handleJwtException(JwtException e) {
+    public ResponseEntity<ErrorResponseDto> handleJwtException(JwtException e) {
         ErrorCode errorCode;
 
         if (e instanceof ExpiredJwtException) {
@@ -76,7 +76,7 @@ public class GlobalExceptionHandler {
 
     // MissingPathVariableException 처리
     @ExceptionHandler(MissingPathVariableException.class)
-    public ResponseEntity<ErrorResponseDTO> handleMissingPathVariable(MissingPathVariableException ex) {
+    public ResponseEntity<ErrorResponseDto> handleMissingPathVariable(MissingPathVariableException ex) {
         ErrorCode errorCode = ErrorCode.MISSING_PATH_VARIABLE;
         log.warn("누락된 경로 변수: {}", ex.getVariableName());
         return buildErrorResponse(errorCode);
@@ -84,8 +84,8 @@ public class GlobalExceptionHandler {
 
 
     // 중복 제거용 공통 메서드
-    private ResponseEntity<ErrorResponseDTO> buildErrorResponse(ErrorCode ec) {
-        ErrorResponseDTO body = new ErrorResponseDTO(
+    private ResponseEntity<ErrorResponseDto> buildErrorResponse(ErrorCode ec) {
+        ErrorResponseDto body = new ErrorResponseDto(
                 LocalDateTime.now(),
                 ec.getHttpStatus(),
                 ec.getCode(),

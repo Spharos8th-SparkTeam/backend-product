@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class ErrorResponseDTO {
+public class ErrorResponseDto {
     @JsonSerialize(using = LocalDateTimeSerializer.class)
     @JsonDeserialize(using = LocalDateTimeDeserializer.class)
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss.SSS")
@@ -24,7 +24,7 @@ public class ErrorResponseDTO {
     private int code;
     private String message;
 
-    public ErrorResponseDTO(ErrorCode errorCode) {
+    public ErrorResponseDto(ErrorCode errorCode) {
         this.timestamp = LocalDateTime.now();
         this.status = errorCode.getHttpStatus();
         this.code = errorCode.getCode();
