@@ -69,7 +69,7 @@ backend-product
 | 클래스 | 역할 |
 | :--- | :--- |
 | `ErrorCode` | HTTP 상태, 에러 코드, 메시지 정의 |
-| `ErrorResponseDTO` | 에러 응답 바디 (`timestamp`, `status`, `code`, `message`) |
+| `ErrorResponseDto` | 에러 응답 바디 (`timestamp`, `status`, `code`, `message`) |
 | `BusinessException` | 비즈니스 예외 |
 | `CustomSecurityException` | 보안 관련 예외 |
 | `GlobalExceptionHandler` | 예외를 `ErrorCode` 기반 응답으로 변환 |
