@@ -42,7 +42,7 @@ CREATE TABLE `product_wish` (
 
 CREATE TABLE `product_category` (
 	`id`	BIGINT	NOT NULL,
-	`my_id`	BIGINT	NULL	COMMENT 'ex) 물품 종류 id',
+	`parent_id`	BIGINT	NULL	COMMENT 'ex) 물품 종류 id',
 	`category_uuid`	CHAR(36)	NOT NULL,
 	`depth`	INT	NOT NULL	COMMENT 'ex) 1차, 2차',
 	`name`	VARCHAR(80)	NOT NULL,
