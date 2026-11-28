@@ -5,8 +5,6 @@
 | 물품 종류 카테고리 조회 | GET | /api/v1 | /products/categories |
 | 메인페이지 인기 상품 목록 조회 | GET | /api/v1 | /products/popular/main |
 | 메인페이지 신상품 목록 조회 | GET | /api/v1 | /products/new/main |
-| 인기 상품 목록 조회<br>(물품 종류, 국가, 판매 상태, 가격대 필터링 및 정렬) | GET | /api/v1 | /products/popular |
-| 신상품 목록 조회<br>(물품 종류, 국가, 판매 상태, 가격대 필터링 및 정렬) | GET | /api/v1 | /products/new |
 | 상품 목록 조회<br>(국가, 판매 상태, 가격대 필터링 및 정렬) | GET | /api/v1 | /products/categories/{categorieUUID} |
 | 검색한 상품 목록 조회<br>(물품 종류, 국가, 판매 상태, 가격대 필터링 및 정렬) | GET | /api/v1 | /products?keyword={keyword} |
 | 판매 상품 상세 조회 | GET | /api/v1 | /products/{productUuid} |
